@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:shiro="http://www.pollix.at/thymeleaf/shiro"
+      xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <link rel="stylesheet" href="/css/custom.form.css">
+</head>
+<body>
+<div class="layui-collapse">
+  <div class="layui-colla-item">
+    <h2 class="layui-colla-title">查询条件</h2>
+    <div class="layui-colla-content layui-show">
+       <div id="searchParam" >
+		    <div class="layui-form-item"  >
+		        <div class="layui-input-inline">
+		            <label class="layui-form-label">业务领域</label>
+		            <input type="text" id="userId" class="layui-input"  autocomplete="off" >
+		        </div>
+		        <div class="layui-input-inline">
+		            <label class="layui-form-label">华为子公司</label>
+		            <input type="text" id="username" class="layui-input"  autocomplete="off" >
+		        </div>
+		        <div class="layui-input-inline">
+		            <label class="layui-form-label">组织</label>
+		            <input type="text" id="operation" class="layui-input"  autocomplete="off" >
+		        </div>
+		        <div class="layui-input-inline">
+		            <label class="layui-form-label">PO号</label>
+		            <input type="text" id="pos" class="layui-input"  autocomplete="off" placeholder="多个请以','隔开">
+		        </div>
+		        <div class="layui-input-inline">
+		            <label class="layui-form-label">Item编码</label>
+		            <input type="text" class="layui-input" id="createTime" placeholder="多个请以','隔开">
+		        </div>
+		        <div class="layui-input-inline">
+		            <label class="layui-form-label">承诺日期</label>
+		            <div class="layui-row">
+			            <input type="text" class="layui-input" style="width:45%;float:left;" >
+			            <input type="text" class="layui-input"  style="width:45%">
+		            </div>
+		        </div>
+		        <div class="layui-input-inline">
+		            <label class="layui-form-label">订单下达日期</label>
+		            <div class="layui-row">
+			            <input type="text" class="layui-input" style="width:45%;float:left;" >
+			            <input type="text" class="layui-input"  style="width:45%">
+		            </div>
+		        </div>
+		        <div class="layui-input-inline ">
+		            <button class="layui-btn layui-btn-sm" style="margin-top:20px;"   id="search">查询</button>
+		            <button class="layui-btn layui-btn-sm  layui-btn-primary"   style="margin-top:20px;"  >重置</button>
+		        </div>
+		    </div>
+		</div>
+    </div>
+  </div>
+</div>
+<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief" style="margin:0px;">
+  <ul class="layui-tab-title">
+    <li class="layui-this">生产物料<span class="layui-badge-rim layui-bg-red">6</span></li>
+  </ul>
+  <div class="layui-tab-content">
+      <div class="layui-row">
+	    <div class="layui-col-md6">
+	    <div class="layui-card">
+			  <div class="layui-card-header" style="background:#87CEEB;color:#4682B4;font-weight:bold;">待接受<span class="layui-badge layui-bg-blue">2399</span></div>
+			  <div class="layui-card-body">
+			  <div class="layui-row">
+			    <div class="layui-col-md6">
+				    <ul class="mui-table-view">
+					    <li class="mui-table-view-cell" id="poList" >新订单
+					        <span class="layui-badge-rim layui-bg-blue">6</span>
+					    </li>
+					    <li class="mui-table-view-cell">订单交期修改
+					        <span class="layui-badge-rim layui-bg-blue">0</span>
+					    </li>
+					    <li class="mui-table-view-cell">订单取消确认
+					        <span class="layui-badge layui-bg-blue">1</span>
+					    </li>
+					    <li class="mui-table-view-cell">内容变更通知
+					        <span class="layui-badge layui-bg-blue">0</span>
+					    </li>
+					    <li class="mui-table-view-cell">订单取消通知
+					        <span class="layui-badge layui-bg-blue">0</span>
+					    </li>
+					</ul>
+			    </div>
+			    <div class="layui-col-md6">
+				    <ul class="mui-table-view">
+						    <li class="mui-table-view-cell">待华为确认交期更改
+						        <span class="layui-badge-rim layui-bg-blue">6</span>
+						    </li>
+						    <li class="mui-table-view-cell">待华为确认数量变更
+						        <span class="layui-badge-rim layui-bg-blue">0</span>
+						    </li>
+						    <li class="mui-table-view-cell">待华为确认取消
+						        <span class="layui-badge layui-bg-blue">1</span>
+						    </li>
+						    <li class="mui-table-view-cell">RMA交货订单通知
+						        <span class="layui-badge layui-bg-blue">0</span>
+						    </li>
+						    <li class="mui-table-view-cell">VCI-CA订单
+						        <span class="layui-badge layui-bg-blue">0</span>
+						    </li>
+						</ul>
+			    </div>
+			  </div>
+			     
+			  </div>
+			</div>
+	    </div>
+	    <div class="layui-col-md3">
+	       <div class="layui-card">
+			  <div class="layui-card-header" style="background:#AFEEEE;color:#00BFFF;font-weight:bold;">已接受<span class="layui-badge layui-bg-blue">2399</span></div>
+			  <div class="layui-card-body">
+			     <ul class="mui-table-view">
+				    <li class="mui-table-view-cell">在途订单 
+				        <span class="layui-badge-rim layui-bg-blue">6</span>
+				    </li>
+				    <li class="mui-table-view-cell">已交货未付款关闭
+				        <span class="layui-badge-rim layui-bg-blue">6</span>
+				    </li>
+				    <li class="mui-table-view-cell">已付款关闭
+				        <span class="layui-badge layui-bg-blue">1</span>
+				    </li>
+				    <li class="mui-table-view-cell">归档订单
+				        <span class="layui-badge layui-bg-blue">查看</span>
+				    </li>
+				    <li class="mui-table-view-cell">取消订单
+				        <span class="layui-badge layui-bg-blue">1</span>
+				    </li>
+				</ul>
+			  </div>
+			</div>
+	    </div>
+	    <div class="layui-col-md3">
+	     <div class="layui-card">
+			  <div class="layui-card-header" style="background:#FFA07A;color:#FF6347;font-weight:bold;">预警<span class="layui-badge layui-bg-blue">28</span></div>
+			  <div class="layui-card-body">
+			     <ul class="mui-table-view">
+				    <li class="mui-table-view-cell">新订单超过三天未处理
+				        <span class="layui-badge-rim layui-bg-blue">0</span>
+				    </li>
+				    <li class="mui-table-view-cell">预计两周内到货
+				        <span class="layui-badge-rim layui-bg-blue">0</span>
+				    </li>
+				    <li class="mui-table-view-cell">下单六个月未交货
+				        <span class="layui-badge layui-bg-blue">28</span>
+				    </li>
+				    <li class="mui-table-view-cell">过期PO
+				        <span class="layui-badge layui-bg-blue">0</span>
+				    </li>
+				</ul>
+			  </div>
+			</div>
+	    </div>
+	  </div>
+  </div>
+</div>    
+
+<script src="/layui/layui.all.js"></script>
+<script src="/js/core.util.js"></script>
+<script  th:inline="none">
+    var layer = layui.layer;
+    var $ = jQuery = layui.jquery;
+    var form = layui.form;
+    var element = layui.element;
+    var treetable;
+    var selectNode={};
+    $(function () {
+    	/*
+        	 CoreUtil.sendAjax("/sys/po/board",JSON.stringify(searchParam),function (res) {
+                 console.log(res)
+             },"GET",false,function (res) {
+                 layer.msg("抱歉！您暂无获取用户列表的权限");
+                 
+             });
+        }); */
+        
+        //po订单
+        $("#poList").click(function () {
+        	alert('123');
+        	/* active.tabAdd("/index/api/po/toIndex", "132", "PO");
+        	active.tabChange("132"); */
+        });
+    });
+  //触发事件
+    var active={
+        tabAdd : function (url,id,title) {
+            if(url!=""&&url!=null&&url!=undefined){
+            element.tabAdd('tab',{
+                title: title
+                , content: '<iframe data-frameid="' + id + '" frameborder="0" name="content" width="100%" src="' + url + '"></iframe>'
+                , id: id
+            })
+            }
+        },
+        tabChange: function (id) {
+            //切换到指定Tab项
+            element.tabChange('tab', id); //切换到：用户管理
+            $("iframe[data-frameid='" + id + "']").attr("src", $("iframe[data-frameid='" + id + "']").attr("src"))//切换后刷新框架
+        },
+        tabDelete: function (id) {
+            element.tabDelete("tab", id);//删除
+        }
+    };
+    
+</script>
+</body>
+</html>
