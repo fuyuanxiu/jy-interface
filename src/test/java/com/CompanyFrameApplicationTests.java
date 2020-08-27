@@ -1,4 +1,4 @@
-package com.xh.lesson;
+package com;
 
 import com.xh.lesson.mapper.SysUserRoleMapper;
 import com.xh.lesson.service.PermissionService;
