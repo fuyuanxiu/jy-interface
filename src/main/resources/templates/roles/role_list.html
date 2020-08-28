@@ -112,13 +112,13 @@
             pageNum:1,
             pageSize:10
         }
-        CoreUtil.sendAjax("/sysRouter/getlist",JSON.stringify(searchParam),function (res) {
+        CoreUtil.sendAjax("/sys/roles",JSON.stringify(searchParam),function (res) {
         	console.log(res)
             laypageTable(res.data.totalRows,searchParam.pageNum);
             if(res.data.list !=null){
                 loadTable(res.data.list);
             }
-        },"GET",false,function (res) {
+        },"POST",false,function (res) {
             layer.msg("抱歉！您暂无获取角色列表的权限");
             var noAuthorityData=[];
             loadTable(noAuthorityData);
